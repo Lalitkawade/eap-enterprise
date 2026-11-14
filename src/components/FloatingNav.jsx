@@ -461,212 +461,213 @@ export const FloatingNav = () => {
 
       {/* MOBILE NAVIGATION DRAWER & BACKDROP */}
       {mobileMenuOpen && (
-        <div
-          className="mobile-nav-backdrop"
-          onClick={() => setMobileMenuOpen(false)}
-          aria-hidden="true"
-        />
-      )}
-
-      <aside
-        className={`mobile-nav-drawer ${mobileMenuOpen ? "is-open" : ""}`}
-        aria-label="Mobile Navigation Menu"
-        aria-hidden={!mobileMenuOpen}
-      >
-        <div className="mobile-drawer-header">
-          <div className="mobile-drawer-brand">
-            <img
-              src="/Client logos/User Logo/Modern EAP Golden Orbit Logo.png"
-              alt="Erphan Alam Enterprises"
-              className="mobile-drawer-logo"
-            />
-            <div className="mobile-drawer-brand-text">
-              <span className="mobile-drawer-title">ERPHAN ALAM</span>
-              <span className="mobile-drawer-sub">ENTERPRISES</span>
-            </div>
-          </div>
-          <button
-            type="button"
-            className="mobile-drawer-close-btn"
+        <>
+          <div
+            className="mobile-nav-backdrop"
             onClick={() => setMobileMenuOpen(false)}
-            aria-label="Close menu"
+            aria-hidden="true"
+          />
+
+          <aside
+            className="mobile-nav-drawer is-open"
+            aria-label="Mobile Navigation Menu"
           >
-            <X size={18} />
-          </button>
-        </div>
-
-        <div className="mobile-drawer-status-badge">
-          <span className="mobile-drawer-pulse-dot"></span>
-          <span>Operations Active • All-India Grid</span>
-        </div>
-
-        <nav className="mobile-drawer-nav">
-          <button
-            type="button"
-            className={`mobile-drawer-link ${activeSection === "home" ? "active" : ""}`}
-            onClick={() => handleNavClick("#home")}
-          >
-            <span className="drawer-link-icon"><Home size={17} /></span>
-            <span className="drawer-link-text">Home Overview</span>
-            <ChevronRight size={14} className="drawer-link-arrow" />
-          </button>
-
-          <button
-            type="button"
-            className={`mobile-drawer-link ${activeSection === "about" ? "active" : ""}`}
-            onClick={() => handleNavClick("#about")}
-          >
-            <span className="drawer-link-icon"><BookOpen size={17} /></span>
-            <span className="drawer-link-text">Corporate Manifesto</span>
-            <ChevronRight size={14} className="drawer-link-arrow" />
-          </button>
-
-          {/* Collapsible Direct Services Section */}
-          <div className="mobile-drawer-accordion">
-            <button
-              type="button"
-              className={`mobile-drawer-link has-accordion ${activeSection === "services" ? "active" : ""}`}
-              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-            >
-              <span className="drawer-link-icon"><Layers size={17} /></span>
-              <span className="drawer-link-text">Direct Services</span>
-              <span className="mobile-services-badge">5 Verticals</span>
-              <ChevronDown
-                size={15}
-                className={`drawer-accordion-arrow ${mobileServicesOpen ? "rotated" : ""}`}
-              />
-            </button>
-
-            {mobileServicesOpen && (
-              <div className="mobile-accordion-sublinks">
-                <button
-                  type="button"
-                  className="mobile-sublink"
-                  onClick={() => handleNavClick("#elec")}
-                >
-                  <span className="sublink-num">01</span>
-                  <div className="sublink-content">
-                    <strong>Electrical & Staffing</strong>
-                    <span>Substations, panels & technicians</span>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  className="mobile-sublink"
-                  onClick={() => handleNavClick("#fab")}
-                >
-                  <span className="sublink-num">02</span>
-                  <div className="sublink-content">
-                    <strong>Cable Tray & Steel</strong>
-                    <span>Galvanized trays & PEB factory sheds</span>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  className="mobile-sublink"
-                  onClick={() => handleNavClick("#brick")}
-                >
-                  <span className="sublink-num">03</span>
-                  <div className="sublink-content">
-                    <strong>Red Kiln Bricks</strong>
-                    <span>2,000,000 yard stock & 12.5–15 N/mm²</span>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  className="mobile-sublink"
-                  onClick={() => handleNavClick("#fish")}
-                >
-                  <span className="sublink-num">04</span>
-                  <div className="sublink-content">
-                    <strong>Freshwater Aquaculture</strong>
-                    <span>4 species & paddlewheel aerated ponds</span>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  className="mobile-sublink"
-                  onClick={() => handleNavClick("#duck")}
-                >
-                  <span className="sublink-num">05</span>
-                  <div className="sublink-content">
-                    <strong>Duck Farming & Eggs</strong>
-                    <span>6,000 daily harvest & buffer stock</span>
-                  </div>
-                </button>
+            <div className="mobile-drawer-header">
+              <div className="mobile-drawer-brand">
+                <img
+                  src="/Client logos/User Logo/Modern EAP Golden Orbit Logo.png"
+                  alt="Erphan Alam Enterprises"
+                  className="mobile-drawer-logo"
+                />
+                <div className="mobile-drawer-brand-text">
+                  <span className="mobile-drawer-title">ERPHAN ALAM</span>
+                  <span className="mobile-drawer-sub">ENTERPRISES</span>
+                </div>
               </div>
-            )}
-          </div>
-
-          <button
-            type="button"
-            className={`mobile-drawer-link ${activeSection === "pan-india" ? "active" : ""}`}
-            onClick={() => handleNavClick("#pan-india")}
-          >
-            <span className="drawer-link-icon"><MapPin size={17} /></span>
-            <span className="drawer-link-text">Pan-India Logistics Grid</span>
-            <ChevronRight size={14} className="drawer-link-arrow" />
-          </button>
-
-          <button
-            type="button"
-            className={`mobile-drawer-link ${activeSection === "estimator" ? "active" : ""}`}
-            onClick={() => handleNavClick("#estimator")}
-          >
-            <span className="drawer-link-icon"><Calculator size={17} /></span>
-            <span className="drawer-link-text">Project Cost Estimator</span>
-            <ChevronRight size={14} className="drawer-link-arrow" />
-          </button>
-
-          <button
-            type="button"
-            className={`mobile-drawer-link ${activeSection === "contact" ? "active" : ""}`}
-            onClick={() => handleNavClick("#contact")}
-          >
-            <span className="drawer-link-icon"><Send size={17} /></span>
-            <span className="drawer-link-text">RFP & Procurement Desk</span>
-            <ChevronRight size={14} className="drawer-link-arrow" />
-          </button>
-        </nav>
-
-        {/* Quick Phone / WhatsApp Direct Action Pills */}
-        <div className="mobile-drawer-footer">
-          <div className="mobile-quick-helplines">
-            <span className="quick-helpline-kicker">DIRECT PROCUREMENT HELPLINES</span>
-            <div className="quick-helpline-grid">
-              <a href={`tel:${settings.primaryPhone}`} className="mobile-helpline-btn">
-                <Phone size={14} />
-                <span>+91 {settings.primaryPhone}</span>
-              </a>
-              <a
-                href={`https://wa.me/${settings.whatsappNumber}?text=Hello,%20I%20would%20like%20to%20discuss%20a%20business%20procurement%20requirement.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mobile-helpline-btn whatsapp"
+              <button
+                type="button"
+                className="mobile-drawer-close-btn"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
               >
-                <MessageCircle size={14} />
-                <span>WhatsApp Desk</span>
-              </a>
+                <X size={18} />
+              </button>
             </div>
-          </div>
 
-          <button
-            type="button"
-            className="mobile-drawer-admin-btn"
-            onClick={() => {
-              setMobileMenuOpen(false);
-              setCurrentView("admin");
-            }}
-          >
-            <ShieldCheck size={16} />
-            <span>{isAdminLoggedIn ? "Open Executive Management Portal" : "Admin Portal Sign-In"}</span>
-          </button>
-        </div>
-      </aside>
+            <div className="mobile-drawer-status-badge">
+              <span className="mobile-drawer-pulse-dot"></span>
+              <span>Operations Active • All-India Grid</span>
+            </div>
+
+            <nav className="mobile-drawer-nav">
+              <button
+                type="button"
+                className={`mobile-drawer-link ${activeSection === "home" ? "active" : ""}`}
+                onClick={() => handleNavClick("#home")}
+              >
+                <span className="drawer-link-icon"><Home size={17} /></span>
+                <span className="drawer-link-text">Home Overview</span>
+                <ChevronRight size={14} className="drawer-link-arrow" />
+              </button>
+
+              <button
+                type="button"
+                className={`mobile-drawer-link ${activeSection === "about" ? "active" : ""}`}
+                onClick={() => handleNavClick("#about")}
+              >
+                <span className="drawer-link-icon"><BookOpen size={17} /></span>
+                <span className="drawer-link-text">Corporate Manifesto</span>
+                <ChevronRight size={14} className="drawer-link-arrow" />
+              </button>
+
+              {/* Collapsible Direct Services Section */}
+              <div className="mobile-drawer-accordion">
+                <button
+                  type="button"
+                  className={`mobile-drawer-link has-accordion ${activeSection === "services" ? "active" : ""}`}
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                >
+                  <span className="drawer-link-icon"><Layers size={17} /></span>
+                  <span className="drawer-link-text">Direct Services</span>
+                  <span className="mobile-services-badge">5 Verticals</span>
+                  <ChevronDown
+                    size={15}
+                    className={`drawer-accordion-arrow ${mobileServicesOpen ? "rotated" : ""}`}
+                  />
+                </button>
+
+                {mobileServicesOpen && (
+                  <div className="mobile-accordion-sublinks">
+                    <button
+                      type="button"
+                      className="mobile-sublink"
+                      onClick={() => handleNavClick("#elec")}
+                    >
+                      <span className="sublink-num">01</span>
+                      <div className="sublink-content">
+                        <strong>Electrical & Staffing</strong>
+                        <span>Substations, panels & technicians</span>
+                      </div>
+                    </button>
+
+                    <button
+                      type="button"
+                      className="mobile-sublink"
+                      onClick={() => handleNavClick("#fab")}
+                    >
+                      <span className="sublink-num">02</span>
+                      <div className="sublink-content">
+                        <strong>Cable Tray & Steel</strong>
+                        <span>Galvanized trays & PEB factory sheds</span>
+                      </div>
+                    </button>
+
+                    <button
+                      type="button"
+                      className="mobile-sublink"
+                      onClick={() => handleNavClick("#brick")}
+                    >
+                      <span className="sublink-num">03</span>
+                      <div className="sublink-content">
+                        <strong>Red Kiln Bricks</strong>
+                        <span>2,000,000 yard stock & 12.5–15 N/mm²</span>
+                      </div>
+                    </button>
+
+                    <button
+                      type="button"
+                      className="mobile-sublink"
+                      onClick={() => handleNavClick("#fish")}
+                    >
+                      <span className="sublink-num">04</span>
+                      <div className="sublink-content">
+                        <strong>Freshwater Aquaculture</strong>
+                        <span>4 species & paddlewheel aerated ponds</span>
+                      </div>
+                    </button>
+
+                    <button
+                      type="button"
+                      className="mobile-sublink"
+                      onClick={() => handleNavClick("#duck")}
+                    >
+                      <span className="sublink-num">05</span>
+                      <div className="sublink-content">
+                        <strong>Duck Farming & Eggs</strong>
+                        <span>6,000 daily harvest & buffer stock</span>
+                      </div>
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              <button
+                type="button"
+                className={`mobile-drawer-link ${activeSection === "pan-india" ? "active" : ""}`}
+                onClick={() => handleNavClick("#pan-india")}
+              >
+                <span className="drawer-link-icon"><MapPin size={17} /></span>
+                <span className="drawer-link-text">Pan-India Logistics Grid</span>
+                <ChevronRight size={14} className="drawer-link-arrow" />
+              </button>
+
+              <button
+                type="button"
+                className={`mobile-drawer-link ${activeSection === "estimator" ? "active" : ""}`}
+                onClick={() => handleNavClick("#estimator")}
+              >
+                <span className="drawer-link-icon"><Calculator size={17} /></span>
+                <span className="drawer-link-text">Project Cost Estimator</span>
+                <ChevronRight size={14} className="drawer-link-arrow" />
+              </button>
+
+              <button
+                type="button"
+                className={`mobile-drawer-link ${activeSection === "contact" ? "active" : ""}`}
+                onClick={() => handleNavClick("#contact")}
+              >
+                <span className="drawer-link-icon"><Send size={17} /></span>
+                <span className="drawer-link-text">RFP & Procurement Desk</span>
+                <ChevronRight size={14} className="drawer-link-arrow" />
+              </button>
+            </nav>
+
+            {/* Quick Phone / WhatsApp Direct Action Pills */}
+            <div className="mobile-drawer-footer">
+              <div className="mobile-quick-helplines">
+                <span className="quick-helpline-kicker">DIRECT PROCUREMENT HELPLINES</span>
+                <div className="quick-helpline-grid">
+                  <a href={`tel:${settings.primaryPhone}`} className="mobile-helpline-btn">
+                    <Phone size={14} />
+                    <span>+91 {settings.primaryPhone}</span>
+                  </a>
+                  <a
+                    href={`https://wa.me/${settings.whatsappNumber}?text=Hello,%20I%20would%20like%20to%20discuss%20a%20business%20procurement%20requirement.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mobile-helpline-btn whatsapp"
+                  >
+                    <MessageCircle size={14} />
+                    <span>WhatsApp Desk</span>
+                  </a>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                className="mobile-drawer-admin-btn"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setCurrentView("admin");
+                }}
+              >
+                <ShieldCheck size={16} />
+                <span>{isAdminLoggedIn ? "Open Executive Management Portal" : "Admin Portal Sign-In"}</span>
+              </button>
+            </div>
+          </aside>
+        </>
+      )}
     </>
   );
 };
