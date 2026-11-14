@@ -104,6 +104,23 @@ export const ArchitecturalDivisions = () => {
     });
   };
 
+  // Lock body scroll and handle Escape key when lightbox is open
+  useEffect(() => {
+    if (lightbox.isOpen) {
+      document.body.style.overflow = "hidden";
+      const handleKeyDown = (e) => {
+        if (e.key === "Escape") closeLightbox();
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [lightbox.isOpen]);
+
   return (
     <section className="arch-section divisions-arch-section" id="services">
       <div className="container">
